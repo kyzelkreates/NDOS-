@@ -12,17 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="ui/ndos.css" />
+  <link rel="stylesheet" href="./ui/ndos.css" />
 
   <!-- PWA -->
-  <link rel="manifest" href="pwa/manifest.json" />
+  <link rel="manifest" href="./pwa/manifest.json" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="NDOS" />
-
-  <!-- Disclaimer (non-medical) -->
-  <!-- This application is NOT a medical device, does NOT diagnose any condition,
-       and does NOT replace professional support. For personal organisation only. -->
 
   <title>NDOS — Daily Structure OS</title>
 </head>
@@ -33,14 +29,13 @@
   <script type="module">
     import { mountDashboard } from "./ui/dashboard.js";
 
-    // Mount the NDOS dashboard
     const root = document.getElementById("ndos-root");
     mountDashboard(root);
 
     // Register service worker
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/ndos/pwa/sw.js", { scope: "/ndos/" })
+        .register("./pwa/sw.js", { scope: "/" })
         .then(() => console.log("[NDOS] Service worker registered"))
         .catch((err) => console.warn("[NDOS] SW registration failed:", err));
     }
