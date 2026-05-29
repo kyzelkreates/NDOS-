@@ -1,0 +1,37 @@
+{
+  "name": "NDOS — Daily Structure OS",
+  "short_name": "NDOS",
+  "description": "Neurodiversity Support & Daily Structure Operating System",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0f1117",
+  "background_color": "#0f1117",
+  "icons": [
+    {
+      "src": "/icons/ndos-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/ndos-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Today Focus",
+      "url": "/?view=focus",
+      "description": "Jump to your today focus board"
+    },
+    {
+      "name": "Reset Sequence",
+      "url": "/?view=reset",
+      "description": "Start a calm reset"
+    }
+  ]
+}
