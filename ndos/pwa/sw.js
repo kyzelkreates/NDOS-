@@ -1,13 +1,21 @@
 // NDOS — Service Worker
 // Offline-first caching for daily structure support
 
-const CACHE_NAME = "ndos-v1";
+const CACHE_NAME = "ndos-v2";
 
 const PRECACHE = [
   "/",
   "/index.html",
-  "/ndos/ui/ndos.css",
-  "/ndos/index.js"
+  "/ui/ndos.css",
+  "/index.js",
+  "/ui/dashboard.js",
+  "/core/storage.js",
+  "/core/state.js",
+  "/core/tasks.js",
+  "/core/routines.js",
+  "/engine/cognitive-engine.js",
+  "/engine/routine-engine.js",
+  "/pwa/manifest.json"
 ];
 
 self.addEventListener("install", (event) => {
@@ -27,9 +35,6 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  // Cache-first for static assets, network-first for everything else
-  const url = new URL(event.request.url);
-
   if (event.request.method !== "GET") return;
 
   event.respondWith(
@@ -40,7 +45,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
         return response;
-      });
+      }).catch(() => cached);
 
       return cached || networkFetch;
     })
