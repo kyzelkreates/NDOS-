@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "root": "ndos",
+  "outputDirectory": "ndos",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
